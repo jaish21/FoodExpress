@@ -1,8 +1,8 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from "react";
-import { RestaurantScreen } from "./src/features/restaurant/screens/Restaurants.screen";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastructure/themes";
+import { TabNavigation } from "./src/components/TabNavigation";
 
 import {
   useFonts as useOswald,
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantScreen />
+        <TabNavigation />
       </ThemeProvider>
 
       <ExpoStatusBar style="auto" />

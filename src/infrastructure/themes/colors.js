@@ -25,4 +25,8 @@ export const colors = {
     error: "#D0421B",
     success: "#138000",
   },
+  highlight: {
+    active: "#3eaab8",
+    inactive: "#7c8182",
+  },
 };
