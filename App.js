@@ -3,13 +3,14 @@ import React from "react";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastructure/themes";
 import { TabNavigation } from "./src/components/TabNavigation";
-
 import {
   useFonts as useOswald,
   Oswald_400Regular,
   Oswald_700Bold,
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
+import { RestaurantsContextProvider } from "./src/services/restaurants/Restaurants.context";
+import { LocationContextProvider } from "./src/services/location/Location.context";
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -25,7 +26,11 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <TabNavigation />
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <TabNavigation />
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
 
       <ExpoStatusBar style="auto" />

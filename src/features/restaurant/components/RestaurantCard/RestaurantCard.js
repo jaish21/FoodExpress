@@ -16,16 +16,13 @@ import {
 
 export const RestaurantCard = ({ restaurant = {} }) => {
   const {
-    name = "Little Italy",
-    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-    photos = [
-      "https://thumbs.dreamstime.com/b/healthy-food-background-fruits-vegetables-cereal-nuts-superfood-dietary-balanced-vegetarian-eating-products-kitchen-143677456.jpg",
-      "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    ],
-    address = "100 Main street",
-    isOpenNow = true,
-    rating = 4,
-    isClosedTemporarily = true,
+    name,
+    icon,
+    photos,
+    address,
+    isOpenNow,
+    rating,
+    isClosedTemporarily,
   } = restaurant;
 
   const restaurantRating = Array.from(new Array(Math.floor(rating)));
