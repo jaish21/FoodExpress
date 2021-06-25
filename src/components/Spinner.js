@@ -14,7 +14,7 @@ const SpinnerContainer = styled(View)`
   left: 50%;
 `;
 
-export const Spinner = () => {
+const Spinner = () => {
   return (
     <SpinnerContainer>
       <StyledSpinner
@@ -25,3 +25,5 @@ export const Spinner = () => {
     </SpinnerContainer>
   );
 };
+
+export default Spinner;

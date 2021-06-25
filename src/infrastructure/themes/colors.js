@@ -26,6 +26,7 @@ export const colors = {
     success: "#138000",
   },
   highlight: {
+    bold: "#2b838f",
     active: "#3eaab8",
     inactive: "#7c8182",
   },

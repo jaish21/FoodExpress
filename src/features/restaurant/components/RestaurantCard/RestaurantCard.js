@@ -3,8 +3,8 @@ import { Image } from "react-native";
 import { SvgFromXml } from "react-native-svg";
 import start from "../../../../../assets/star";
 import openNow from "../../../../../assets/openNow";
-import { Spacer } from "../../../../components/Spacer";
-import { Text } from "../../../../components/Typography";
+import Spacer from "../../../../components/Spacer";
+import Text from "../../../../components/Typography";
 import {
   RestaurantCardContainer,
   RestaurantCardCover,
@@ -13,8 +13,9 @@ import {
   RatingSection,
   SectionEnd,
 } from "./RestaurantCard.styles";
+import Favourite from "../../../../components/Favourite";
 
-export const RestaurantCard = ({ restaurant = {} }) => {
+export default RestaurantCard = ({ restaurant = {} }) => {
   const {
     name,
     icon,
@@ -29,6 +30,7 @@ export const RestaurantCard = ({ restaurant = {} }) => {
   return (
     <>
       <RestaurantCardContainer elevation={5}>
+        <Favourite restaurant={restaurant} />
         <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
 
         <Text variant="body">{name}</Text>
@@ -41,11 +43,18 @@ export const RestaurantCard = ({ restaurant = {} }) => {
 
           <SectionEnd>
             {isClosedTemporarily && (
-              <Text variant="error">Closed Temporarily</Text>
+              <>
+                <Text variant="error">Closed Temporarily</Text>
+                <Spacer position="left" size="medium" />
+              </>
             )}
-            <Spacer position="left" size="large" />
-            {isOpenNow && <SvgFromXml xml={openNow} width={15} height={15} />}
-            <Spacer position="left" size="large" />
+            {isOpenNow && (
+              <>
+                <SvgFromXml xml={openNow} width={15} height={15} />
+                <Spacer position="left" size="medium" />
+              </>
+            )}
+
             <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
           </SectionEnd>
         </RatingSection>
