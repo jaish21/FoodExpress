@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
+import LottieView from "lottie-react-native";
 import {
   Background,
   BackgroundCover,
   AccountContainer,
   AccountButton,
+  AnimationWrapper,
 } from "../components/Background.styles";
 import {
   InputText,
@@ -23,6 +25,14 @@ export const LoginScreen = () => {
   return (
     <Background>
       <BackgroundCover />
+      <AnimationWrapper height={20} top={110}>
+        <LottieView
+          key="animation"
+          source={require("../../../../assets/FoodToss.json")}
+          autoPlay
+          loop
+        />
+      </AnimationWrapper>
       <Text variant="title">Food Express</Text>
       <AccountContainer>
         <InputText

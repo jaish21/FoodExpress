@@ -34,7 +34,7 @@ export const AccountButton = styled(Button).attrs({
 
 export const AnimationWrapper = styled.View`
   width: 100%;
-  height: 30%;
+  height: ${(props) => props.height || 30}%;
   position: absolute;
-  top: 120px;
+  top: ${(props) => props.top || 120}px;
 `;

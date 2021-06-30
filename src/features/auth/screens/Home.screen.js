@@ -15,7 +15,7 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <Background>
       <BackgroundCover />
-      <AnimationWrapper height={50}>
+      <AnimationWrapper>
         <LottieView
           key="animation"
           source={require("../../../../assets/BouncingFruit.json")}
