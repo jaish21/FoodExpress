@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TouchableOpacity } from "react-native";
-import { FavouritesContext } from "../services/favourites/Favourites.context";
+import { FavouritesContext } from "../../services/favourites/Favourites.context";
 import styled from "styled-components";
 import { AntDesign } from "@expo/vector-icons";
 

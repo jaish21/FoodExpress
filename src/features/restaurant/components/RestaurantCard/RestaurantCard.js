@@ -13,7 +13,7 @@ import {
   RatingSection,
   SectionEnd,
 } from "./RestaurantCard.styles";
-import Favourite from "../../../../components/Favourite";
+import Favourite from "../../../../components/Favourites/Favourite";
 
 export default RestaurantCard = ({ restaurant = {} }) => {
   const {

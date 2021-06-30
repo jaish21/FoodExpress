@@ -51,7 +51,11 @@ export const MapsScreen = ({ navigation }) => {
                 navigation.navigate("Restaurant Details", { restaurant })
               }
             >
-              <Callout name={restaurant.name} image={restaurant.photos[0]} />
+              <Callout
+                name={restaurant.name}
+                image={restaurant.photos[0]}
+                isMapView
+              />
             </MapView.Callout>
           </MapView.Marker>
         ))}

@@ -8,6 +8,7 @@ import { FavouritesContext } from "../../../services/favourites/Favourites.conte
 import Spinner from "../../../components/Spinner";
 import Search from "../components/Search";
 import SafeArea from "../../../components/SafeArea";
+import FavouritesBar from "../../../components/Favourites/FavouritesBar";
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: { padding: 16 },
@@ -24,6 +25,12 @@ export const RestaurantScreen = ({ navigation }) => {
         isFavouritesToggled={isFavouritesToggled}
         onFavouritesToggle={() => setIsFavouritesToggled(!isFavouritesToggled)}
       />
+      {isFavouritesToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onCardClick={navigation.navigate}
+        />
+      )}
       {isLoading && <Spinner />}
       {!isLoading && (
         <RestaurantList

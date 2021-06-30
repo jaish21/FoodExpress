@@ -1,11 +1,14 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MapsScreen } from "../../features/map/screens/Maps.screen";
 import { SettingsScreen } from "../../features/restaurant/screens/Settings.screen";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../themes/colors";
 import RestaurantNavigator from "./Restaurant.navigation";
+
+import { RestaurantsContextProvider } from "../../services/restaurants/Restaurants.context";
+import { LocationContextProvider } from "../../services/location/Location.context";
+import { FavouritesContextProvider } from "../../services/favourites/Favourites.context";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,26 +29,28 @@ const getScreenOptions = ({ route }) => {
 
 const Tabs = () => {
   return (
-    <Tab.Navigator
-      screenOptions={getScreenOptions}
-      tabBarOptions={{
-        activeTintColor: colors.highlight.active,
-        inactiveTintColor: colors.highlight.inactive,
-      }}
-    >
-      <Tab.Screen name="Restaurants" component={RestaurantNavigator} />
-      <Tab.Screen name="Maps" component={MapsScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
+    <FavouritesContextProvider>
+      <LocationContextProvider>
+        <RestaurantsContextProvider>
+          <Tab.Navigator
+            screenOptions={getScreenOptions}
+            tabBarOptions={{
+              activeTintColor: colors.highlight.active,
+              inactiveTintColor: colors.highlight.inactive,
+            }}
+          >
+            <Tab.Screen name="Restaurants" component={RestaurantNavigator} />
+            <Tab.Screen name="Maps" component={MapsScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </RestaurantsContextProvider>
+      </LocationContextProvider>
+    </FavouritesContextProvider>
   );
 };
 
 const AppNavigation = () => {
-  return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
-  );
+  return <Tabs />;
 };
 
 export default AppNavigation;

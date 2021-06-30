@@ -23,12 +23,12 @@ const CalloutImageIos = styled(Image)`
 `;
 
 const isAndroid = Platform.OS === "android";
-const Callout = ({ name, image }) => {
-  const Image = isAndroid ? CalloutImageAndroid : CalloutImageIos;
+const Callout = ({ name, image, isMapView }) => {
+  const Image = isAndroid && isMapView ? CalloutImageAndroid : CalloutImageIos;
   return (
     <CalloutView>
       <Image source={{ uri: image }} />
-      <Text variant="body">{name}</Text>
+      <Text variant="caption">{name}</Text>
     </CalloutView>
   );
 };
