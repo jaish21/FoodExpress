@@ -49,7 +49,6 @@ export const LoginScreen = () => {
             label="Password"
             secureTextEntry
             textContentType="password"
-            keyboardType="password"
             value={password}
             autoCorrect={false}
             autoCaptitalize="none"

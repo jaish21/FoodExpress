@@ -49,7 +49,6 @@ export const RegisterScreen = () => {
             label="Password"
             secureTextEntry
             textContentType="password"
-            keyboardType="password"
             value={password}
             autoCorrect={false}
             autoCaptitalize="none"
@@ -61,7 +60,6 @@ export const RegisterScreen = () => {
             label="Confirm password"
             secureTextEntry
             textContentType="password"
-            keyboardType="password"
             value={confirmPassword}
             autoCorrect={false}
             autoCaptitalize="none"
